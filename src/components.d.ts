@@ -6,42 +6,43 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyButton {
-        "color"?: 'primary' | 'secondary';
-        "disabled"?: boolean;
-        "elevation"?: boolean;
-        "shape"?: 'full' | 'round' | 'smooth';
-        "size"?: 'large' | 'medium' | 'small';
+    interface DateInput {
+        "dateInputId": string;
+        "isDisabled": boolean;
+        "label": string;
+        "name": string;
+        "value": string;
     }
 }
 declare global {
-    interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
+    interface HTMLDateInputElement extends Components.DateInput, HTMLStencilElement {
     }
-    var HTMLMyButtonElement: {
-        prototype: HTMLMyButtonElement;
-        new (): HTMLMyButtonElement;
+    var HTMLDateInputElement: {
+        prototype: HTMLDateInputElement;
+        new (): HTMLDateInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-button": HTMLMyButtonElement;
+        "date-input": HTMLDateInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyButton {
-        "color"?: 'primary' | 'secondary';
-        "disabled"?: boolean;
-        "elevation"?: boolean;
-        "shape"?: 'full' | 'round' | 'smooth';
-        "size"?: 'large' | 'medium' | 'small';
+    interface DateInput {
+        "dateInputId"?: string;
+        "isDisabled"?: boolean;
+        "label"?: string;
+        "name"?: string;
+        "onDateAdded"?: (event: CustomEvent<string>) => void;
+        "value"?: string;
     }
     interface IntrinsicElements {
-        "my-button": MyButton;
+        "date-input": DateInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
+            "date-input": LocalJSX.DateInput & JSXBase.HTMLAttributes<HTMLDateInputElement>;
         }
     }
 }
