@@ -7,6 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DateInput {
+        "dateInputId": string;
+        "isDisabled": boolean;
+        "label": string;
+        "name": string;
+        "value": string;
     }
 }
 declare global {
@@ -22,6 +27,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DateInput {
+        "dateInputId"?: string;
+        "isDisabled"?: boolean;
+        "label"?: string;
+        "name"?: string;
+        "onDateAdded"?: (event: CustomEvent<string>) => void;
+        "value"?: string;
     }
     interface IntrinsicElements {
         "date-input": DateInput;
